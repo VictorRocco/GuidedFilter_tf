@@ -1,8 +1,8 @@
 import tensorflow as tf
 
-class GuidedFilterBase(tf.keras.layers.Layer):
+class BoxFilter(tf.keras.layers.Layer):
 	def __init__(self, radious=1, eps=1e-8, nhwc=True):
-		super(GuidedFilterBase, self).__init__()
+		super(BoxFilter, self).__init__()
 		self.radious = radious
 		self.eps     = eps
 		self.nhwc    = nhwc

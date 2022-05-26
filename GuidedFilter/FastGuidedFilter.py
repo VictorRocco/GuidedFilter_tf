@@ -1,7 +1,7 @@
 import tensorflow as tf
-from .GuidedFilterBase import GuidedFilterBase
+from .BoxFilter import BoxFilter
 
-class FastGuidedFilter(GuidedFilterBase):
+class FastGuidedFilter(BoxFilter):
 	def __init__(self, radious=1, eps=1e-8, nhwc=True):
 		super().__init__(radious, eps, nhwc)
 		

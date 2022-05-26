@@ -4,12 +4,12 @@ all:
 	echo "installing..."
 	python3 setuptools_script.py bdist_wheel
 	python3 -m pip install dist/*.whl
-	pip3 install GuidedFilters
+	python3 -m pip install GuidedFilter
 
 clean:
 	echo "cleaning..."
-	pip3 uninstall -y GuidedFilters
-	rm -rf GuidedFilters.egg-info/
+	pip3 uninstall -y GuidedFilter
+	rm -rf GuidedFilter.egg-info/
 	rm -rf build/
 	rm -rf dist/
 
