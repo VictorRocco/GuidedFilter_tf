@@ -23,7 +23,7 @@ class BoxFilter(tf.keras.layers.Layer):
 		output = tf.concat([left, middle, right], axis=3)
 		return output
 
-	def __box_filter__(self, x, r):
+	def box_filter(self, x, r):
 		assert x.shape.ndims == 4
 		return self.__diff_y__(tf.cumsum(self.__diff_x__(tf.cumsum(x, axis=2), r), axis=3), r)
 
