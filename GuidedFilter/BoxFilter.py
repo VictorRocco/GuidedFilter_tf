@@ -34,4 +34,3 @@ class BoxFilter(tf.keras.layers.Layer):
 
 	def get_config(self):
 		return {"radious": self.radious, "eps": self.eps, "nhwc": self.nhwc}
-

@@ -61,3 +61,11 @@ class GuidedFilter(BoxFilter):
 		self.nhwc = self.nhwc if nhwc==None else nhwc
 
 		return self.guided_filter(guiding_image, guided_image, self.radious, self.eps, self.nhwc)
+
+	def set_config(self, radious=1, eps=1e-8, nhwc=True):
+		self.radious = radious
+		self.eps     = eps
+		self.nhwc    = nhwc
+
+	def get_config(self):
+		return {"radious": self.radious, "eps": self.eps, "nhwc": self.nhwc}

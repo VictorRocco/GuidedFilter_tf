@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="GuidedFilter",
-    version="0.1.0",
+    version="0.1.1",
     description="Guided Filter (GF) based layers for TensorFlow",
     long_description=long_description,
     long_description_content_type="text/markdown",
