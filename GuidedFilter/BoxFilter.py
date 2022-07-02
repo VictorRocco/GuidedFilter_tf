@@ -1,12 +1,13 @@
 import tensorflow as tf
 
+@tf.keras.utils.register_keras_serializable()
 class BoxFilter(tf.keras.layers.Layer):
-	def __init__(self, radious=1, eps=1e-8, nhwc=True):
-		super(BoxFilter, self).__init__()
+	def __init__(self, radious=1, eps=1e-8, nhwc=True, **kwargs):
+		super(BoxFilter, self).__init__(**kwargs)
 		self.radious = radious
 		self.eps     = eps
 		self.nhwc    = nhwc
-		
+
 	def __diff_x__(self, input, r):
 		assert input.shape.ndims == 4
 		left   = input[:, :,     r:2*r +1]
@@ -33,4 +34,8 @@ class BoxFilter(tf.keras.layers.Layer):
 		self.nhwc    = nhwc
 
 	def get_config(self):
-		return {"radious": self.radious, "eps": self.eps, "nhwc": self.nhwc}
+		config = super().get_config()
+		config["radious"] = self.radious
+		config["eps"] = self.eps
+		config["nhwc"] = self.nhwc
+		return config
