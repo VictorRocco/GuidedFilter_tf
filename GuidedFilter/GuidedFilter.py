@@ -1,10 +1,14 @@
 import tensorflow as tf
 from .BoxFilter import BoxFilter
 
+@tf.keras.utils.register_keras_serializable()
 class GuidedFilter(BoxFilter):
-	def __init__(self, radious=1, eps=1e-8, nhwc=True):
-		super().__init__(radious, eps, nhwc)
-		
+	def __init__(self, radious=1, eps=1e-8, nhwc=True, **kwargs):
+		super(GuidedFilter, self).__init__(radious, eps, nhwc, **kwargs)
+		self.radious = radious
+		self.eps     = eps
+		self.nhwc    = nhwc
+
 	def guided_filter(self, guiding_image, guided_image, radious, eps, nhwc):
 		x = guiding_image
 		y = guided_image
@@ -68,4 +72,8 @@ class GuidedFilter(BoxFilter):
 		self.nhwc    = nhwc
 
 	def get_config(self):
-		return {"radious": self.radious, "eps": self.eps, "nhwc": self.nhwc}
+		config = super().get_config()
+		config["radious"] = self.radious
+		config["eps"] = self.eps
+		config["nhwc"] = self.nhwc
+		return config
