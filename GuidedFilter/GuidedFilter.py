@@ -4,7 +4,7 @@ from .BoxFilter import BoxFilter
 @tf.keras.utils.register_keras_serializable()
 class GuidedFilter(BoxFilter):
 	def __init__(self, radious=1, eps=1e-8, nhwc=True, **kwargs):
-		super(GuidedFilter, self).__init__(radious, eps, nhwc, **kwargs)
+		super().__init__(radious, eps, nhwc, **kwargs)
 		self.radious = radious
 		self.eps     = eps
 		self.nhwc    = nhwc

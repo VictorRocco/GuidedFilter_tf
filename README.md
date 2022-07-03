@@ -1,4 +1,4 @@
-# Guided Filter (GF) based layers for TensorFlow
+# Guided Filter (GF) based layers for TensorFlow / Keras
 The [Guided Filter](https://en.wikipedia.org/wiki/Guided_filter) is a technique for edge-aware image filtering.
 
 Is one of several popular algorithms for edge-preserving smoothing, like [Bilateral Filter](https://en.wikipedia.org/wiki/Bilateral_filter).

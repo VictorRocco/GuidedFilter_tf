@@ -3,7 +3,7 @@ import tensorflow as tf
 @tf.keras.utils.register_keras_serializable()
 class BoxFilter(tf.keras.layers.Layer):
 	def __init__(self, radious=1, eps=1e-8, nhwc=True, **kwargs):
-		super(BoxFilter, self).__init__(**kwargs)
+		super().__init__(**kwargs)
 		self.radious = radious
 		self.eps     = eps
 		self.nhwc    = nhwc
