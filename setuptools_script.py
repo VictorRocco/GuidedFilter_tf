@@ -6,10 +6,10 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="GuidedFilter",
     version="0.1.2",
-    description="Guided Filter (GF) based layers for TensorFlow",
+    description="Guided Filter (GF) based layers for TensorFlow / Keras",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/VictorRocco/GuidedFilter_tf",
+    url="https://github.com/VictorRocco/GuidedFilter_tfkeras",
     author="Victor Rocco",
     author_email="victor_rocco@hotmail.com",
     license="MIT",
