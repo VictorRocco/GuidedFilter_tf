@@ -59,8 +59,7 @@ class GuidedFilter(BoxFilter):
 		return output
 
 	def call(self, guiding_image, guided_image, radious=None, eps=None, nhwc=None):
-
-		self.radios = self.radious if radious==None else radious
+		self.radious = self.radious if radious==None else radious
 		self.eps = self.eps if eps==None else eps
 		self.nhwc = self.nhwc if nhwc==None else nhwc
 

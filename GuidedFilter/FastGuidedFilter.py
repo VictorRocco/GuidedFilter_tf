@@ -63,8 +63,8 @@ class FastGuidedFilter(BoxFilter):
 		hr_x = tf.transpose(hr_x, [0, 2, 3, 1])
 		mean_A = tf.image.resize(A, hr_x_shape[2:])
 		mean_b = tf.image.resize(b, hr_x_shape[2:])
-		#output = mean_A * hr_x + mean_b
-		output = mean_A * tf.dtypes.cast(hr_x, tf.float32) + mean_b
+		#output = mean_A * tf.dtypes.cast(hr_x, tf.float32) + mean_b
+		output = mean_A * hr_x + mean_b
 
 		# data format
 		if not nhwc:
@@ -75,7 +75,7 @@ class FastGuidedFilter(BoxFilter):
 	def call(self, guiding_image_low_resolution, guided_image_low_resolution, guided_image_high_resolution, 
 			radious=None, eps=None, nhwc=None):
 
-		self.radios = self.radious if radious==None else radious
+		self.radious = self.radious if radious==None else radious
 		self.eps = self.eps if eps==None else eps
 		self.nhwc = self.nhwc if nhwc==None else nhwc
 
