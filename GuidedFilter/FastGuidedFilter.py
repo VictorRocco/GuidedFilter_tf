@@ -1,5 +1,7 @@
 import tensorflow as tf
+
 from .BoxFilter import BoxFilter
+
 
 @tf.keras.utils.register_keras_serializable()
 class FastGuidedFilter(BoxFilter):
