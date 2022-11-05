@@ -99,9 +99,9 @@ class FastGuidedFilter(BoxFilter):
         nhwc=None,
     ):
 
-        self.radious = self.radious if radious == None else radious
-        self.eps = self.eps if eps == None else eps
-        self.nhwc = self.nhwc if nhwc == None else nhwc
+        self.radious = self.radious if radious is None else radious
+        self.eps = self.eps if eps is None else eps
+        self.nhwc = self.nhwc if nhwc is None else nhwc
 
         return self.fast_guided_filter(
             guiding_image_low_resolution,
