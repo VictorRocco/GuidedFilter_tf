@@ -4,7 +4,7 @@ directories = GuidedFilter
 pre_commit:
 	echo "pre commit..."
 	isort $(directories)
-	#black $(directories)
+	black $(directories)
 	##mypy $(directories) --ignore-missing-imports --strict
 	#flake8 $(directories) --max-line-length 110 --max-complexity 10 --extend-ignore=F405,F403
 	##pylint $(directories) --disable=E0401
