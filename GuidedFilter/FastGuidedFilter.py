@@ -5,6 +5,7 @@ from .BoxFilter import BoxFilter
 
 @tf.keras.utils.register_keras_serializable()
 class FastGuidedFilter(BoxFilter):
+
     def __init__(self, radious=1, eps=1e-8, nhwc=True, **kwargs):
         super().__init__(radious, eps, nhwc, **kwargs)
         self.radious = radious
@@ -50,9 +51,7 @@ class FastGuidedFilter(BoxFilter):
         tf.assert_equal(lr_x_shape[2:], lr_y_shape[2:])
         tf.assert_greater(lr_x_shape[2:], 2 * self.radious + 1)
         tf.Assert(
-            tf.logical_or(
-                tf.equal(lr_x_shape[1], 1), tf.equal(lr_x_shape[1], lr_y_shape[1])
-            ),
+            tf.logical_or(tf.equal(lr_x_shape[1], 1), tf.equal(lr_x_shape[1], lr_y_shape[1])),
             [lr_x_shape, lr_y_shape],
         )
 

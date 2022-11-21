@@ -5,6 +5,7 @@ from .BoxFilter import BoxFilter
 
 @tf.keras.utils.register_keras_serializable()
 class GuidedFilter(BoxFilter):
+
     def __init__(self, radious=1, eps=1e-8, nhwc=True, **kwargs):
         super().__init__(radious, eps, nhwc, **kwargs)
         self.radious = radious
@@ -40,9 +41,7 @@ class GuidedFilter(BoxFilter):
 
         # compute
         # N
-        N = self.box_filter(
-            tf.ones((1, 1, x_shape[2], x_shape[3]), dtype=x.dtype), self.radious
-        )
+        N = self.box_filter(tf.ones((1, 1, x_shape[2], x_shape[3]), dtype=x.dtype), self.radious)
         # mean_x
         mean_x = self.box_filter(x, self.radious) / N
         # mean y
@@ -70,9 +69,7 @@ class GuidedFilter(BoxFilter):
         self.eps = self.eps if eps is None else eps
         self.nhwc = self.nhwc if nhwc is None else nhwc
 
-        return self.guided_filter(
-            guiding_image, guided_image, self.radious, self.eps, self.nhwc
-        )
+        return self.guided_filter(guiding_image, guided_image, self.radious, self.eps, self.nhwc)
 
     def set_config(self, radious=1, eps=1e-8, nhwc=True):
         self.radious = radious
